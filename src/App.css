@@ -35,6 +35,20 @@ font-size: 1.1rem;
 line-height: 1.6;
 }
 
+.botao-alternar {
+ margin: 0 0 24px;
+ padding: 10px 18px;
+ background-color: #1d4ed8;
+ color: #ffffff;
+ border: none;
+ border-radius: 6px;
+ font-size: 1rem;
+ cursor: pointer;
+}
+.botao-alternar:hover {
+ background-color: #1e40af;
+}
+
 .modulos {
 display: grid;
 grid-template-columns: repeat(3, 1fr);

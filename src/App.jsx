@@ -1,11 +1,14 @@
 import { useState } from 'react';
 import { Routes, Route } from 'react-router'
 import './App.css'
-import Cabecalho from './components/Cabecalho';
-import CardModulo from './components/CardMordulo';
+import Cabecalho from './components/Cabecalho'
+import CardModulo from './components/CardMordulo'
 import Clientes from './pages/Clientes'
 import ListaClientes from './pages/ListaClientes'
-import CadastroCliente from './pages/CadastroClientes';
+import CadastroCliente from './pages/CadastroClientes'
+import Funcionarios from './pages/Funcionarios';
+import ListaFuncionarios from './pages/ListaFuncionarios';
+import CadastroFuncionario from './pages/CadastroFuncionario';
 
 
 function App() {
@@ -27,6 +30,7 @@ function App() {
       id: 3,
       titulo: 'Gerenciamento de Funcionários',
       descricao: 'Cadastre e consulte os funcionários da empresa.',
+      rota: '/funcionarios',
     },
     {
       id: 4,
@@ -70,20 +74,37 @@ function App() {
           </div>
         }
       />
-        <Route 
-          path="/clientes" 
-          element={<Clientes />} 
-        />
+
+      <Route 
+        path="/clientes" 
+        element={<Clientes />} 
+      />
         
-        <Route
-          path="/clientes/listar"
-          element={<ListaClientes />}
-        />
-        <Route
+      <Route
+        path="/clientes/listar"
+        element={<ListaClientes />}
+      />
+      <Route
         path="/clientes/cadastrar"
-        element ={<CadastroCliente />}
+        element={<CadastroCliente />}
+      />
+        <Route
+        path = "/funcionarios"
+        element={<Funcionarios />}
+      />
+      
+      <Route
+        path = "/funcionarios/listar"
+        element={<ListaFuncionarios />}
       />
 
+      <Route
+        path = "/funcionarios/cadastrar"
+        element={<CadastroFuncionario />}
+      />
+
+
+            
     </Routes>
   )
 }

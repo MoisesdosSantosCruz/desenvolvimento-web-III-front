@@ -1,6 +1,7 @@
 import { Link } from 'react-router'
-function ListaClientes() {
-    const clientes = [
+
+function ListaFuncionarios() {
+    const funcionarios = [
     {
         id: 1,
         nome: 'Ana Souza',
@@ -22,19 +23,19 @@ function ListaClientes() {
     ]
     return (
         <main className="pagina-clientes">
-            <h1>Lista de Clientes</h1>
+            <h1>Lista de Funcionarios</h1>
             <ul className="lista-clientes">
-                {clientes.map((cliente) => (
-                    <li key={cliente.id}>
-                        <strong>{cliente.nome}</strong>
-                        <span> CPF: {cliente.cpf}</span>
-                        <span> E-mail: {cliente.email}</span>
+                {funcionarios.map((funcionarios) => (
+                    <li key={funcionarios.id}>
+                        <strong>{funcionarios.nome}</strong>
+                        <span> CPF: {funcionarios.cpf}</span>
+                        <span> E-mail: {funcionarios.email}</span>
                     </li>
                 ))}
             </ul>
-            <Link to="/clientes">Voltar para Gerenciamento de Clientes</Link>
+            <Link to="/funcionarios">Voltar para Gerenciamento de Funcionarios</Link>
         </main>
     )
 }
 
-export default ListaClientes
+export default ListaFuncionarios

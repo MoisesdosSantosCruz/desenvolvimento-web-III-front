@@ -234,6 +234,41 @@ grid-template-columns: 1fr;
  background-color: #1e40af;
 }
 
+/* Ações da listagem de clientes */
+.acoes-cliente {
+ display: flex;
+ gap: 12px;
+ margin-top: 14px;
+}
+.botao-alterar,
+.botao-excluir {
+ padding: 10px 16px;
+ border: none;
+ border-radius: 6px;
+ color: #ffffff;
+ font-size: 0.95rem;
+ font-weight: 600;
+ text-decoration: none;
+ cursor: pointer;
+ transition:
+ background-color 0.2s,
+ transform 0.2s;
+}
+.botao-alterar {
+ background-color: #f59e0b;
+}
+.botao-alterar:hover {
+ background-color: #d97706;
+ transform: translateY(-2px);
+}
+.botao-excluir {
+ background-color: #dc2626;
+}
+.botao-excluir:hover {
+ background-color: #b91c1c;
+ transform: translateY(-2px);
+}
+
 /* Responsividade das páginas de clientes */
 
 @media (max-width: 768px) {
@@ -245,3 +280,4 @@ grid-template-columns: 1fr;
  grid-template-columns: 1fr;
  }
 }
+

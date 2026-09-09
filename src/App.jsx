@@ -6,12 +6,45 @@ import CardModulo from './components/CardMordulo'
 import Clientes from './pages/Clientes'
 import ListaClientes from './pages/ListaClientes'
 import CadastroCliente from './pages/CadastroClientes'
-import Funcionarios from './pages/Funcionarios';
-import ListaFuncionarios from './pages/ListaFuncionarios';
-import CadastroFuncionario from './pages/CadastroFuncionario';
+import Funcionarios from './pages/Funcionarios'
+import ListaFuncionarios from './pages/ListaFuncionarios'
+import CadastroFuncionario from './pages/CadastroFuncionario'
+import clientesIniciais from './data/clientes'
+import EditarCliente from './pages/EditarClientes';
+
 
 
 function App() {
+  const [clientes, setClientes] = useState(clientesIniciais)
+  
+  function adicionarCliente(novoCliente) {
+    const clienteComId = {
+      id: Date.now(),
+      ...novoCliente,
+    }
+    setClientes((listaAtual) => [
+      ...listaAtual,
+      clienteComId,
+    ])
+  }
+
+  function excluirCliente(id) {
+    setClientes((listaAtual) =>
+      listaAtual.filter((cliente) => cliente.id !== id)
+    )
+  }
+
+  function alterarCliente(clienteAtualizado) {
+    setClientes((listaAtual) =>
+      listaAtual.map((cliente) =>
+        cliente.id === clienteAtualizado.id
+          ? clienteAtualizado
+          : cliente
+      )
+    )
+  }
+
+
   const [mostrarModulos, setMostrarModulos] = useState(true)
 
   const [modulos] = useState([
@@ -74,6 +107,8 @@ function App() {
           </div>
         }
       />
+      
+      {/*Rotas de Cliente*/}
 
       <Route 
         path="/clientes" 
@@ -82,13 +117,29 @@ function App() {
         
       <Route
         path="/clientes/listar"
-        element={<ListaClientes />}
+        element={<ListaClientes 
+          clientes={clientes}
+          aoExcluir={excluirCliente} />}
       />
+
       <Route
         path="/clientes/cadastrar"
-        element={<CadastroCliente />}
+        element={<CadastroCliente aoCadastrar={adicionarCliente} />}
       />
-        <Route
+
+      <Route
+        path="/clientes/editar/:id"
+        element={
+          <EditarCliente
+            clientes={clientes}
+            aoAlterar={alterarCliente}
+          />
+        }
+      />
+
+        {/*Rotas de Funcionário*/}
+
+      <Route
         path = "/funcionarios"
         element={<Funcionarios />}
       />

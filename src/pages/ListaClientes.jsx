@@ -18,8 +18,8 @@ function ListaClientes({ clientes, aoExcluir }) {
 					<li key={cliente.id}>
 						<strong>{cliente.nome}</strong>
 						<span> CPF: {cliente.cpf}</span>
-						<span>Telefone: {cliente.telefone} </span>
 						<span> E-mail: {cliente.email}</span>
+						<span>Telefone: {cliente.telefone} </span>
 						<div className="acoes-cliente">
 							< Link
 								to={`/clientes/editar/${cliente.id}`}

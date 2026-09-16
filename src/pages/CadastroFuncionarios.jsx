@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import { Link } from 'react-router'
 
-function CadastroFuncionario() {
+function CadastroFuncionario({ aoCadastrar }) {
 	const [nome, setNome] = useState('')
 	const [cpf, setCpf] = useState('')
 	const [telefone, setTelefone] = useState('')
 	const [email, setEmail] = useState('')
+	
 	function cadastrarFuncionario(evento) {
 		evento.preventDefault()
 		const novoFuncionario = {
@@ -14,8 +15,14 @@ function CadastroFuncionario() {
 			telefone,
 			email,
 		}
-		console.log(novoFuncionario)
+    	aoCadastrar(novoFuncionario)
 		alert('Funcionario cadastrado com sucesso!')
+
+		
+		setNome('')
+		setCpf('')
+		setTelefone('')
+		setEmail('')
 	}
 	return (
 		<main className="pagina-clientes">

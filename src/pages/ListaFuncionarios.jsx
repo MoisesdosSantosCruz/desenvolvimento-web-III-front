@@ -1,35 +1,42 @@
 import { Link } from 'react-router'
 
-function ListaFuncionarios() {
-  const funcionarios = [
-    {
-      id: 1,
-      nome: 'Ana Souza',
-      cpf: '12345678901',
-      email: 'ana@email.com',
-    },
-    {
-      id: 2,
-      nome: 'Bruno Lima',
-      cpf: '23456789012',
-      email: 'bruno@email.com',
-    },
-    {
-      id: 3,
-      nome: 'Carla Mendes',
-      cpf: '34567890123',
-      email: 'carla@email.com',
-    },
-  ]
+function ListaFuncionarios({funcionarios, aoExcluir}) {
+  
+	function confirmarExclusao(funcionario) {
+		const confirmacao = window.confirm(
+			`Deseja realmente excluir o funcionário ${funcionario.nome}?`
+		)
+		if (confirmacao) {
+			aoExcluir(funcionario.id)
+		}
+	}
+
   return (
     <main className="pagina-clientes">
       <h1>Lista de Funcionarios</h1>
       <ul className="lista-clientes">
-        {funcionarios.map((funcionarios) => (
-          <li key={funcionarios.id}>
-            <strong>{funcionarios.nome}</strong>
-            <span> CPF: {funcionarios.cpf}</span>
-            <span> E-mail: {funcionarios.email}</span>
+        {funcionarios.map((funcionario) => (
+          <li key={funcionario.id}>
+            <strong>{funcionario.nome}</strong>
+            <span> CPF: {funcionario.cpf}</span>
+            <span> Telefone: {funcionario.telefone}</span>
+            <span> E-mail: {funcionario.email}</span>
+            <div className="acoes-cliente">
+							< Link
+								to={`/funcionarios/editar/${funcionario.id}`}
+								className="botao-alterar"
+							>
+								Alterar
+							</Link>
+							<button
+								type="button"
+								className="botao-excluir"
+								onClick={() => confirmarExclusao(funcionario)}
+							>
+								Excluir
+
+							</button>
+						</div>
           </li>
         ))}
       </ul>

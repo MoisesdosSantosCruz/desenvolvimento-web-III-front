@@ -10,7 +10,7 @@ function Funcionarios() {
           Listar funcionarios
         </Link>
         <Link to="/funcionarios/cadastrar">
-          Cadastrar novo funcionarios
+          Cadastrar novos funcionarios
         </Link>
       </div>
       <Link to="/">

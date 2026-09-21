@@ -1,23 +1,29 @@
 import { useState } from 'react';
 import { Routes, Route } from 'react-router'
 import './App.css'
+
+//Componentes
 import Cabecalho from './components/Cabecalho'
 import CardModulo from './components/CardMordulo'
-import Clientes from './pages/Clientes'
-import ListaClientes from './pages/ListaClientes'
-import CadastroCliente from './pages/CadastroClientes'
+
+//Clientes
+import Clientes from './pages/clientes/Clientes'
+import ListaClientes from './pages/clientes/ListaClientes'
+import CadastroCliente from './pages/clientes/CadastroClientes'
 import clientesIniciais from './data/clientes'
-import EditarCliente from './pages/EditarClientes'
+import EditarCliente from './pages/clientes/EditarClientes'
+
 //Funcionarios
-import Funcionarios from './pages/Funcionarios'
-import ListaFuncionarios from './pages/ListaFuncionarios'
-import CadastroFuncionario from './pages/CadastroFuncionarios'
+import Funcionarios from './pages/funcionarios/Funcionarios'
+import ListaFuncionarios from './pages/funcionarios/ListaFuncionarios'
+import CadastroFuncionario from './pages/funcionarios/CadastroFuncionarios'
 import funcionariosIniciais from './data/funcionarios'
-import EditarFuncionario from './pages/EditarFuncionarios'
+import EditarFuncionario from './pages/funcionarios/EditarFuncionarios'
 
 
 
 function App() {
+  //Dados pré-carregáveis
   const [clientes, setClientes] = useState(clientesIniciais)
   const [funcionarios, setFuncionarios] = useState(funcionariosIniciais)
   
@@ -191,6 +197,7 @@ function App() {
       <Route
         path = "/funcionarios/cadastrar"
         element={<CadastroFuncionario 
+          funcionarios = {funcionarios}
           aoCadastrar={ adicionarFuncionario} />}
       />
       

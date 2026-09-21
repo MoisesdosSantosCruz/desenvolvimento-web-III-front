@@ -19,9 +19,11 @@ function CadastroCliente({ clientes, aoCadastrar }) {
   }
 
   function validarFormulario() {
+    
     const novosErros = {}
     const nomeTratado = nome.trim()
     const emailTratado = email.trim()
+    
     if (nomeTratado.length < 5) {
       novosErros.nome =
         'O nome deve possuir no mínimo 5 caracteres.'
